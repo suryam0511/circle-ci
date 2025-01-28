@@ -20,7 +20,7 @@ jobs:
       - checkout
       - run:
           name: Run Test.py
-          command: python Test.py
+          command: python test.py
 
 # Orchestrate jobs using workflows
 workflows:
