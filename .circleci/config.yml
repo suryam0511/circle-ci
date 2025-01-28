@@ -3,27 +3,28 @@ version: 2.1
 # Define a job to be invoked later in a workflow.
 jobs:
   build:
-    # Specify the execution environment. You can specify an image from Docker Hub or use one of our convenience images from CircleCI's Developer Hub.
     docker:
-      - image: python:3.8  # Specify the version you desire here.
+      - image: python
 
-    # Add steps to the job
     steps:
       # Checkout the code as the first step.
       - checkout
-      - run: python main1.py
+      - run:
+          name: Run main1.py
+          command: python main1.py
 
   test:
     docker:
-      - image: python:3.8  # Specify the version you desire here.
-
+      - image: python
     steps:
       - checkout
-      - run: python test.py
+      - run:
+          name: Run Test.py
+          command: python Test.py
 
 # Orchestrate jobs using workflows
 workflows:
-  build_and_test:  # This is the name of the workflow, feel free to change it to better match your workflow.
+  build_and_test:
     jobs:
       - build
       - test
